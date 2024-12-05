@@ -80,7 +80,7 @@ def process_images(image_folder, output_folder):
             img_with_box, bbox = draw_bounding_box(img, contours)
             yolo_label = calculate_yolo_format(img.shape, bbox)
             
-            # Sesuaikan label berdasarkan status kematangan
+            # Label status kematangan
             initial_yolo_value = {"Matang": "1", "Mentah": "0", "Setengah Matang": "2"}.get(status_kematangan, "Unknown")
             yolo_label_with_status = f"{initial_yolo_value} {yolo_label[2:]}"
 
@@ -91,10 +91,9 @@ def process_images(image_folder, output_folder):
 
             print(f"Label YOLO disimpan di {label_path} (Kematangan: {status_kematangan}, {maturity_persentase:.2f}%)")
 
-# Jalankan pemrosesan
 if __name__ == "__main__":
     # path img
-    image_folder = r"D:\Kuliah\Semester_5\Project\yolo_strawberry_train\test\images"
+    image_folder = r"D:\Kuliah\Semester_5\Project\dataset strowberry\train\img"
     output_folder = "labels"      
     process_images(image_folder, output_folder)
         
