@@ -119,7 +119,7 @@ def display_results(img, img_gamma, mask_red, edges, cleaned_mask, contours, img
     ax[1, 0].axis("off")
     
     ax[1, 1].imshow(cleaned_mask, cmap="gray")
-    ax[1, 1].set_title("Masking Bersih")
+    ax[1, 1].set_title("Garis Tepi + Morfologi")
     ax[1, 1].axis("off")
     
     img_with_contours = cv2.cvtColor(img.copy(), cv2.COLOR_BGR2RGB)
@@ -153,7 +153,7 @@ def display_bounding_box(img_with_box):
 
     # Reset dan tampilkan YOLO label yang baru
     for widget in frame_bounding_box_info.winfo_children():
-        widget.destroy()  # Menghapus label YOLO lama
+        widget.destroy() 
     
     # Tentukan nilai YOLO berdasarkan status kematangan
     if status_kematangan == "Matang":
